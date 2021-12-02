@@ -3,19 +3,23 @@ const { app, BrowserWindow } = require("electron");
 function createWindow() {
 // 브라우저 창을 생성합니다.
 const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 800,
+    minHeight : 600,
+    maxWidth: 1024,
+    maxHeight: 768,
     webPreferences: {
-    nodeIntegration: true,
+        nodeIntegration: true,
     },
+    vibrancy : 'dark',
 });
+win.removeMenu();
 
 // and load the index.html of the app.
 //win.loadFile("index.html");
 win.loadURL('http://dada-messenger.herokuapp.com/main');
 
 // 개발자 도구를 엽니다.
-win.webContents.openDevTools();
+//win.webContents.openDevTools();
 }
 
 // 이 메소드는 Electron의 초기화가 완료되고
